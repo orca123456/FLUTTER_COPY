@@ -22,11 +22,11 @@ jobs:
           channel: stable
 
       - name: Install dependencies
-        working-directory: examify_flutter
+        working-directory: ./examify_flutter
         run: flutter pub get
 
-      - name: Analyze project
-        working-directory: examify_flutter
+      - name: Analyze Flutter code
+        working-directory: ./examify_flutter
         run: flutter analyze
 
       - name: SonarQube Scan
