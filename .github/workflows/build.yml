@@ -9,7 +9,6 @@ on:
 
 jobs:
   sonarqube:
-    name: SonarQube
     runs-on: windows-latest
 
     steps:
@@ -17,18 +16,13 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Flutter
+      - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
 
       - name: Install dependencies
-        working-directory: examify_flutter
         run: flutter pub get
-
-      - name: Analyze project
-        working-directory: examify_flutter
-        run: flutter analyze
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
