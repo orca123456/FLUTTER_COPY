@@ -22,7 +22,12 @@ jobs:
           channel: stable
 
       - name: Install dependencies
+        working-directory: examify_flutter
         run: flutter pub get
+
+      - name: Analyze project
+        working-directory: examify_flutter
+        run: flutter analyze
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
